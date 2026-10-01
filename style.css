@@ -1,0 +1,108 @@
+
+* { box-sizing: border-box; }
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+	background: #f5f5f5;
+	color: #111111;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.page {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 40px 20px;
+}
+
+.card {
+	background: #ffffff;
+	width: 720px;
+	max-width: 92%;
+	padding: 36px 48px;
+	border-radius: 16px;
+	border: 2px solid #111111;
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+	text-align: center;
+}
+
+.title {
+	font-size: 42px;
+	margin: 0 0 8px;
+	font-weight: 800;
+	letter-spacing: -0.04em;
+	color: #111111;
+}
+
+.subtitle {
+	margin: 0 0 20px;
+	font-size: 16px;
+	color: #333333;
+}
+
+.field {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+input[type="date"] {
+	width: 360px;
+	max-width: 100%;
+	padding: 12px 14px;
+	border: 1.5px solid #111111;
+	border-radius: 10px;
+	font-size: 15px;
+	background: #ffffff;
+	color: #111111;
+	outline: none;
+	transition: box-shadow 0.2s ease;
+}
+
+input[type="date"]:focus {
+	box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.12);
+}
+
+button#calculate {
+	background: #111111;
+	color: #ffffff;
+	border: 0;
+	padding: 12px 22px;
+	border-radius: 10px;
+	font-size: 15px;
+	font-weight: 700;
+	cursor: pointer;
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+	box-shadow: 0 8px 16px rgba(17, 17, 17, 0.18);
+}
+
+button#calculate:hover {
+	transform: translateY(-1px);
+}
+
+.result {
+	margin-top: 28px;
+	font-size: 22px;
+	font-weight: 700;
+	color: #111111;
+}
+
+@media (max-width: 480px) {
+	.title {
+		font-size: 28px;
+	}
+
+	.card {
+		padding: 28px 20px;
+	}
+
+	input[type="date"] {
+		width: 100%;
+	}
+}

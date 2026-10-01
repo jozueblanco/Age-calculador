@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="page">
+        <div class="card">
+            <h1 class="title">Age Calculator</h1>
+            <p class="subtitle">Enter you date of birth</p>
+
+            <div class="field">
+                <input id="dob" type="date" aria-label="Date of birth" />
+            </div>
+
+            <button id="calculate" type="button">Calculate Age</button>
+
+            <p id="result" class="result" aria-live="polite"></p>
+        </div>
+    </div>
+
+    <script>
+        const calculateBtn = document.getElementById('calculate');
+        const dobInput = document.getElementById('dob');
+        const resultEl = document.getElementById('result');
+
+        function calculateAge(dob) {
+            const today = new Date();
+            const birth = new Date(dob);
+            if (isNaN(birth)) return null;
+            if (birth > today) return -1;
+
+            let years = today.getFullYear() - birth.getFullYear();
+            const m = today.getMonth() - birth.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
+                years--;
+            }
+            return years;
+        }
+
+        calculateBtn.addEventListener('click', () => {
+            const val = dobInput.value;
+            if (!val) {
+                resultEl.textContent = 'Please enter your date of birth.';
+                return;
+            }
+            const age = calculateAge(val);
+            if (age === null) {
+                resultEl.textContent = 'Invalid date.';
+            } else if (age < 0) {
+                resultEl.textContent = 'Date must be in the past.';
+            } else {
+                resultEl.textContent = `Your age is ${age} years old`;
+            }
+        });
+    </script>
+</body>
+
+</html>
